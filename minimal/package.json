@@ -1,0 +1,23 @@
+{
+    "name": "x4-app",
+    "private": true,
+    "scripts": {
+        "dev": "x4js dev",
+        "build": "x4js build"
+    },
+    "dependencies": {
+        "x4js": "2.3"
+    },
+    "x4": {
+        "entryPoints": [
+            "src/main.ts"
+        ],
+        "outdir": "dist",
+        "copy": [
+            {
+                "from": "public",
+                "to": "."
+            }
+        ]
+    }
+}
