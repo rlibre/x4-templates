@@ -1,11 +1,5 @@
 {
-    "app": {
-        "description": "Standard x4 application"
-    },
-    "minimal": {
-        "description": "Minimal x4 application"
-    },
-    "dashboard": {
-        "description": "Dashboard application"
-    }
+    "app": "Standard x4 application",
+    "minimal": "Minimal x4 application",
+    "dashboard": "Dashboard application"
 }
