@@ -1,0 +1,102 @@
+
+:root {
+    /*
+     * x4 default theme patch
+     */
+
+    --color-primary-a0:   #e7f6fb;
+    --color-primary-a5:   #d1eaf4;
+    --color-primary-a10:  #b9dce9;
+    --color-primary-a20:  #8fc5d9;
+    --color-primary-a30:  #68acc6;
+    --color-primary-a40:  #3992b3;
+    --color-primary-a50:  #1597cf;
+    --color-primary-a55:  #1488ba;
+    --color-primary-a60:  #126f98;
+    --color-primary-a70:  #0d5879;
+    --color-primary-a80:  #083f5b;
+    --color-primary-a90:  #042b40;
+    --color-primary-a100: #001f30;
+
+    --background-primary:   #043149;
+    --background-secondary: #083a54;
+    --background-ternary:   #0b405b;
+
+    --text-primary:   #e7f6fb;
+    --text-secondary: #8ab5c7;
+    --text-ternary:   #5f9db6;
+
+    --disabled-background: #244d5e;
+    --disabled-color:      #7895a1;
+    --disabled-color-dark: #557381;
+
+    --accent-background:        #12688f;
+    --accent-background-hover:  #177ca8;
+    --accent-background-focus:  #1597cf;
+    --accent-background-active: #0d5879;
+
+    --accent-color:        #f2fbff;
+    --accent-color-hover:  #ffffff;
+    --accent-color-focus:  #ffffff;
+    --accent-color-active: #ffffff;
+
+    --border:       #17516b;
+    --border-light: #0f435c;
+    --border-hover: #247596;
+    --border-focus: #1597cf;
+}
+
+html {
+	font-size: 16px;
+}
+
+body {
+    overflow: hidden;
+    background: var(--background-primary);
+    color: var(--text-primary);
+}
+
+.mainview {
+    height: 100vh;
+    overflow: hidden;
+
+    > .appheader {
+        padding: 22px 18px;
+
+        align-items: center;
+        gap: 12px;
+
+        background: var(--app-header-background);
+        border-bottom: 1px solid var(--border);
+
+        > .icon {
+            width: 28px;
+            height: 28px;
+            color: var(--text-primary);
+        }
+
+        > .title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+    }
+
+    > .body {
+        min-height: 0;
+        padding: 16px;
+        overflow: auto;
+    }
+
+    > .statusbar {
+        padding: 4px 10px;
+
+        align-items: center;
+
+        border-top: 1px solid var(--border);
+
+        > .clock {
+            font-variant-numeric: tabular-nums;
+        }
+    }
+}
