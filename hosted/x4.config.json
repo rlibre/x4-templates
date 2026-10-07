@@ -1,0 +1,15 @@
+{
+    "entryPoints": [
+        "src/main.ts"
+    ],
+    "outdir": "dist",
+    "copy": [
+        {
+            "from": "public",
+            "to": "."
+        }
+    ],
+    "dev": {
+        "port": 9000
+    }
+}

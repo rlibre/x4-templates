@@ -1,4 +1,5 @@
 {
     "app": "Standard x4 application",
-    "minimal": "Minimal x4 application"
+    "minimal": "Minimal x4 application",
+    "hosted": "x4 application ready for Vercel, Netlify or Cloudflare Pages"
 }
