@@ -2,11 +2,31 @@
 
 import fs from "node:fs/promises";
 import path from "node:path";
-import { app, BrowserWindow, dialog, ipcMain } from "electron";
+import { pathToFileURL } from "node:url";
+import { app, BrowserWindow, dialog, ipcMain, shell } from "electron";
 import type { HostInfo, TextFile } from "../src/host";
 
 // Address of `x4js dev`, set by scripts/dev.mjs. Undefined once built.
 const devUrl = process.env.X4_DEV_URL;
+
+// The page of the application: the dev server, or the built file.
+const appUrl = devUrl ?? pathToFileURL(path.join(__dirname, "../app/index.html")).href;
+
+function isApplicationPage(url: string) {
+    const page = new URL(appUrl);
+    const target = new URL(url);
+
+    if (page.protocol === "file:")
+        return target.protocol === "file:" && target.pathname === page.pathname;
+
+    return target.origin === page.origin;
+}
+
+function openInBrowser(url: string) {
+    const { protocol } = new URL(url);
+    if (protocol === "https:" || protocol === "http:")
+        shell.openExternal(url);
+}
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -20,10 +40,22 @@ function createWindow() {
         },
     });
 
-    if (devUrl)
-        win.loadURL(devUrl);
-    else
-        win.loadFile(path.join(__dirname, "../app/index.html"));
+    // The window only ever shows the application: any other page loaded
+    // in it would receive window.host. Web links open in the browser.
+    win.webContents.setWindowOpenHandler(({ url }) => {
+        openInBrowser(url);
+        return { action: "deny" };
+    });
+
+    win.webContents.on("will-navigate", (event, url) => {
+        if (isApplicationPage(url))
+            return;
+
+        event.preventDefault();
+        openInBrowser(url);
+    });
+
+    win.loadURL(appUrl);
 }
 
 ipcMain.handle("host:getInfo", (): HostInfo => {

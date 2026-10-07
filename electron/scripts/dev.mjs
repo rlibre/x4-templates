@@ -1,5 +1,5 @@
 // npm run dev: builds the desktop shell, starts `x4js dev`, then opens
-// Electron on the dev server. Closing the window stops everything.
+// Electron on the dev server. Quitting Electron stops everything.
 
 import fs from "node:fs";
 import net from "node:net";

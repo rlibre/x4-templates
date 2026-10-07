@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-`npm run dev` opens the application window. The interface reloads on every change, as it does in a browser. Closing the window stops the command.
+`npm run dev` opens the application window. The interface reloads on every change, as it does in a browser. Quitting the application stops the command: close the window or, on macOS where the application outlives its window, press Cmd+Q.
 
 A change in `desktop` is not reloaded: stop the command and run it again.
 
@@ -60,6 +60,12 @@ To add a function, edit three files:
 3. `desktop/preload.ts`: forward it with `ipcRenderer.invoke("host:myFunction")`.
 
 Values that cross the boundary are copied: pass plain data, not components or functions.
+
+## Links to other sites
+
+The window only ever shows the application. A link or a `window.open` to another site opens in the browser of the system, and the window stays where it is.
+
+This is on purpose: a page loaded in the window receives `window.host`. The rule is in `createWindow`, in `desktop/main.ts`.
 
 ## Menu and developer tools
 
