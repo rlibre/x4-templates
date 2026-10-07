@@ -43,21 +43,13 @@ Each host has a command line that puts the project online from the project folde
 
 For Cloudflare Pages, create the project once with `npx wrangler pages project create`.
 
-## Routes without `#`
+## Routes
 
-`Router` uses hash URLs (`/#/users/12`) by default, which work on every host with nothing to configure.
+Every address that is not a file of the application is answered with `index.html`. Both kinds of `Router` URLs therefore work, including when the page is reloaded:
 
-With `new Router(false)` the URLs are real paths (`/users/12`), and the host must answer them with `index.html`:
+- hash URLs (`/#users/12`), the default;
+- real paths (`/users/12`), with `new Router(false)`.
 
-- Vercel, in `vercel.json`:
-	```json
-	"rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
-	```
-- Netlify, in `netlify.toml`:
-	```toml
-	[[redirects]]
-	from = "/*"
-	to = "/index.html"
-	status = 200
-	```
-- Cloudflare Pages: nothing to do, as long as the project has no `404.html`.
+The rule is in `vercel.json` and `netlify.toml`. Cloudflare Pages applies it by itself, as long as the project has no `404.html`.
+
+An address that matches no route also gets `index.html`: handle it with the `error` event of the `Router`.

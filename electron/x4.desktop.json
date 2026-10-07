@@ -1,0 +1,15 @@
+{
+    "entryPoints": [
+        "desktop/main.ts",
+        "desktop/preload.ts"
+    ],
+    "outdir": "./bin/desktop",
+    "external": [
+        "electron"
+    ],
+    "esbuild": {
+        "platform": "node",
+        "format": "cjs",
+        "target": "node22"
+    }
+}

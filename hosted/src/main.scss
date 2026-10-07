@@ -44,6 +44,12 @@
     --border-light: #0f435c;
     --border-hover: #247596;
     --border-focus: #1597cf;
+
+    /*
+     * application
+     */
+
+    --app-header-background: var(--background-secondary);
 }
 
 html {

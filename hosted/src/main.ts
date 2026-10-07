@@ -81,7 +81,7 @@ class MainView extends VBox {
             }),
 
             new VBox({
-                cls: "app-body",
+                cls: "body",
                 flex: true,
             }),
 
