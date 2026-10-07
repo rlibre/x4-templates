@@ -2,7 +2,7 @@
 	"entryPoints": [
 		"src/main.ts"
 	],
-	"outdir": "dist",
+	"outdir": "./bin",
 	"copy": [
 		{
 			"from": "public",

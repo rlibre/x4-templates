@@ -22,11 +22,11 @@ npm run dev
 npm run build
 ```
 
-`npm run build` writes the application to `dist`.
+`npm run build` writes the application to `bin`.
 
 ## Deploy
 
-An x4js application is a static site: any static host can serve the `dist` folder.
+An x4js application is a static site: any static host can serve the `bin` folder.
 
 The `hosted` template is the `app` template plus the configuration for Vercel and Netlify, so it deploys without any setting. These buttons copy it to your own Git account and put it online:
 
