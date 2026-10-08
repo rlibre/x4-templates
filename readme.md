@@ -8,6 +8,7 @@ Project templates for [x4js](https://github.com/rlibre/x4), used by `x4js create
 | `minimal` | Minimal x4 application |
 | `hosted` | x4 application ready for Vercel, Netlify or Cloudflare Pages |
 | `electron` | x4 desktop application with Electron |
+| `wails` | x4 desktop application with Go and Wails |
 
 ## Create a project
 
