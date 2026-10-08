@@ -1,0 +1,15 @@
+{
+    "$schema": "https://wails.io/schemas/config.v2.json",
+    "name": "x4-wails",
+    "outputfilename": "x4-wails",
+    "frontend:dir": ".",
+    "frontend:install": "npm install",
+    "frontend:build": "npm run build:ui",
+    "frontend:dev:build": "npm run build:ui -- --debug",
+    "frontend:dev:watcher": "npm run dev:ui",
+    "assetdir": "bin",
+    "info": {
+        "productName": "x4-wails",
+        "productVersion": "1.0.0"
+    }
+}

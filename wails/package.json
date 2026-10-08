@@ -1,0 +1,13 @@
+{
+    "name": "x4-wails",
+    "private": true,
+    "scripts": {
+        "dev": "x4js build --debug && wails dev -s",
+        "build": "x4js build && wails build -s",
+        "dev:ui": "x4js dev",
+        "build:ui": "x4js build"
+    },
+    "devDependencies": {
+        "x4js": "2.3"
+    }
+}
